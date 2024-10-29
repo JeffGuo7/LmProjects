@@ -53,26 +53,6 @@ async def chat(request: Request):
         raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Internal server error")
 
 
-# def get_chat_response(message):
-#     import ollama
-#
-#     # 对 message 进行验证和清理
-#     if not isinstance(message, str):
-#         raise ValueError("Message must be a string")
-#     message = message.strip()  # 去除首尾空白字符
-#
-#     stream1 = ollama.chat(
-#         model='qwen2.5:0.5b',
-#         messages=[{'role': 'user', 'content': message}],
-#         stream=True,
-#     )
-#     for chunk in stream1:
-#         yield chunk['message']['content']
-
-# # 调用 get_chat_response 并处理流式返回的数据
-# for response_chunk in get_chat_response("给我写个冒泡"):
-#     print(response_chunk, end='', flush=True)
-
 
 def fetch_streaming_response(url, data):
     json_data = json.dumps(data)
@@ -89,12 +69,8 @@ def fetch_streaming_response(url, data):
                     chunk_data = json.loads(chunk)
                     content = chunk_data.get('message', {}).get('content', '')
                     done = chunk_data.get('done', False)
-
                     # 将内容添加到输出字符串
                     output += content
-
-                    # 打印内容
-                    print(content, end='')
                     yield content
                     # 如果完成，退出循环
                     if done:
