@@ -27,6 +27,6 @@ app.add_middleware(
 
 @app.get("/", response_class=HTMLResponse)
 async def read_index(request: Request):
-    return templates.TemplateResponse("ttt.html", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request})
 
 

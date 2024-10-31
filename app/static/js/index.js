@@ -1,63 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chat Interface</title>
-    <style>
-        .chat-container {
-            width: 80%;
-            margin: 20px auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .messages {
-            height: 400px;
-            overflow-y: auto;
-            margin-bottom: 20px;
-        }
-
-        .message {
-            padding: 10px;
-            border-radius: 5px;
-            background: #eee;
-            margin-bottom: 10px;
-        }
-
-        .input-container {
-            display: flex;
-            padding: 10px;
-        }
-
-        .input {
-            flex-grow: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .send-button {
-            padding: 10px 20px;
-            background: #5cb85c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-<div class="chat-container">
-    <div class="messages" id="messages"></div>
-    <div class="input-container">
-        <input type="text" id="userInput" class="input" placeholder="Type a message...">
-        <button class="send-button" id="sendButton">Send</button>
-    </div>
-</div>
-<script>        document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     const userInput = document.getElementById('userInput');
     const sendButton = document.getElementById('sendButton');
     const messages = document.getElementById('messages');
@@ -159,7 +100,3 @@
         }
     });
 });
-</script>
-
-</body>
-</html>
